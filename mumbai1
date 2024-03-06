@@ -48,6 +48,10 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
 
+        <label>
+            <input type="checkbox" id="rememberMe"> Remember me
+        </label>
+
         <button type="button" onclick="validateLogin()">Login</button>
     </form>
 
@@ -55,10 +59,15 @@
         function validateLogin() {
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
+            var rememberMe = document.getElementById("rememberMe").checked;
 
             // Perform simple validation (for demonstration purposes)
             if (username === "example" && password === "password") {
-                alert("Login successful!");
+                if (rememberMe) {
+                    alert("Login successful! Remember me checked.");
+                } else {
+                    alert("Login successful! Remember me not checked.");
+                }
                 // You can redirect or perform other actions upon successful login.
             } else {
                 alert("Invalid username or password. Please try again.");
